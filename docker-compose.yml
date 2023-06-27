@@ -1,0 +1,41 @@
+version: "3"
+services:
+  db:
+      image: mysql:8.0
+      ports:
+        - "3306:3306"
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: Pa$$5w0rD
+        MYSQL_DATABASE: newsapi_project
+        MYSQL_USER: api_user
+        MYSQL_PASSWORD: Pa$$5w0rD
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: api_user
+      PMA_PASSWORD: Pa$$5w0rD
+    ports:
+      - "8020:80"
+  laravel:
+    build:
+      context: ./laravel-news-app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=newsapi_project
+      - MYSQL_USERNAME=api_user
+      - MYSQL_PASSWORD=Pa$$5w0rD
+
+  react:
+    build:
+      context: ./react-news-app
+      dockerfile: Dockerfile
+    ports:
+      - "4000:3000"

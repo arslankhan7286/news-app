@@ -1,0 +1,74 @@
+/* News Feed CSS */
+
+h3 {
+  font-size: 5vw !important;
+  margin: 20px 0 !important;
+}
+
+.feed-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.feed-content .card {
+  width: 30%;
+  margin: 15px;
+}
+.css-o69gx8-MuiCardMedia-root {
+  height: 250px;
+}
+
+.personalizedNewsFeed {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1200px) {
+  .feed-content .card {
+    width: 28%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: 800px !important;
+  }
+  .feed-content .card {
+    width: 44%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .personalizedNewsFeed .checkbox {
+    flex-basis: 24.6667%;
+  }
+}
+
+@media (max-width: 768px) {
+  .personalizedNewsFeed .checkbox {
+    flex-basis: 33.3333%;
+  }
+}
+@media (max-width: 400px) {
+  .personalizedNewsFeed .checkbox {
+    flex-basis: 50.3333%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .feed-content {
+    justify-content: center;
+  }
+  .feed-content .card {
+    width: 100%;
+  }
+}
+
+
+.checkbox {
+  width: 15%;
+}
